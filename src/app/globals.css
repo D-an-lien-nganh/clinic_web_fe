@@ -1,0 +1,769 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+1. Prevent padding and border from affecting element width. (https://github.com/mozdevs/cssremedy/issues/4)
+2. Allow adding a border to an element by just adding a border-width. (https://github.com/tailwindcss/tailwindcss/pull/116)
+*/
+
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  /* 1 */
+  border-width: 0;
+  /* 2 */
+  border-style: solid;
+  /* 2 */
+  border-color: theme('borderColor.DEFAULT', currentColor);
+  /* 2 */
+}
+
+.late-deadline {
+  background-color: rgb(255, 215, 215) !important;
+}
+
+::before,
+::after {
+  --tw-content: '';
+}
+
+/*
+1. Use a consistent sensible line-height in all browsers.
+2. Prevent adjustments of font size after orientation changes in iOS.
+3. Use a more readable tab size.
+4. Use the user's configured `sans` font-family by default.
+5. Use the user's configured `sans` font-feature-settings by default.
+*/
+
+html {
+  line-height: 1.5;
+  /* 1 */
+  -webkit-text-size-adjust: 100%;
+  /* 2 */
+  -moz-tab-size: 4;
+  /* 3 */
+  tab-size: 4;
+  /* 3 */
+  font-family: theme('fontFamily.sans', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji");
+  /* 4 */
+  /* font-feature-settings: theme('fontFamily.sans[1].fontFeatureSettings', normal);  */
+}
+
+/*
+1. Remove the margin in all browsers.
+2. Inherit line-height from `html` so users can set them as a class directly on the `html` element.
+*/
+
+body {
+  margin: 0;
+  /* 1 */
+  line-height: inherit;
+  /* 2 */
+}
+
+/*
+1. Add the correct height in Firefox.
+2. Correct the inheritance of border color in Firefox. (https://bugzilla.mozilla.org/show_bug.cgi?id=190655)
+3. Ensure horizontal rules are visible by default.
+*/
+
+hr {
+  height: 0;
+  /* 1 */
+  color: inherit;
+  /* 2 */
+  border-top-width: 1px;
+  /* 3 */
+}
+
+/*
+Add the correct text decoration in Chrome, Edge, and Safari.
+*/
+
+abbr:where([title]) {
+  text-decoration: underline dotted;
+}
+
+/*
+Remove the default font size and weight for headings.
+*/
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+/*
+Reset links to optimize for opt-in styling instead of opt-out.
+*/
+
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+/*
+Add the correct font weight in Edge and Safari.
+*/
+
+b,
+strong {
+  font-weight: bolder;
+}
+
+/*
+1. Use the user's configured `mono` font family by default.
+2. Correct the odd `em` font sizing in all browsers.
+*/
+
+code,
+kbd,
+samp,
+pre {
+  font-family: theme('fontFamily.mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace);
+  /* 1 */
+  font-size: 1em;
+  /* 2 */
+}
+
+/*
+Add the correct font size in all browsers.
+*/
+
+small {
+  font-size: 80%;
+}
+
+/*
+Prevent `sub` and `sup` elements from affecting the line height in all browsers.
+*/
+
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+sup {
+  top: -0.5em;
+  color: aqua;
+}
+
+/*
+1. Remove text indentation from table contents in Chrome and Safari. (https://bugs.chromium.org/p/chromium/issues/detail?id=999088, https://bugs.webkit.org/show_bug.cgi?id=201297)
+2. Correct table border color inheritance in all Chrome and Safari. (https://bugs.chromium.org/p/chromium/issues/detail?id=935729, https://bugs.webkit.org/show_bug.cgi?id=195016)
+3. Remove gaps between table borders by default.
+*/
+
+table {
+  text-indent: 0;
+  /* 1 */
+  border-color: inherit;
+  /* 2 */
+  border-collapse: collapse;
+  /* 3 */
+}
+
+/*
+1. Change the font styles in all browsers.
+2. Remove the margin in Firefox and Safari.
+3. Remove default padding in all browsers.
+*/
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: inherit;
+  /* 1 */
+  font-size: 100%;
+  /* 1 */
+  font-weight: inherit;
+  /* 1 */
+  line-height: inherit;
+  /* 1 */
+  color: inherit;
+  /* 1 */
+  margin: 0;
+  /* 2 */
+  padding: 0;
+  /* 3 */
+}
+
+/*
+Remove the inheritance of text transform in Edge and Firefox.
+*/
+
+button,
+select {
+  text-transform: none;
+}
+
+/*
+Use the modern Firefox focus style for all focusable elements.
+*/
+
+:-moz-focusring {
+  outline: auto;
+}
+
+/*
+Remove the additional `:invalid` styles in Firefox. (https://github.com/mozilla/gecko-dev/blob/2f9eacd9d3d995c937b4251a5557d95d494c9be1/layout/style/res/forms.css#L728-L737)
+*/
+
+:-moz-ui-invalid {
+  box-shadow: none;
+}
+
+/*
+Add the correct vertical alignment in Chrome and Firefox.
+*/
+
+progress {
+  vertical-align: baseline;
+}
+
+/*
+Correct the cursor style of increment and decrement buttons in Safari.
+*/
+
+::-webkit-inner-spin-button,
+::-webkit-outer-spin-button {
+  height: auto;
+}
+
+/*
+1. Correct the odd appearance in Chrome and Safari.
+2. Correct the outline style in Safari.
+*/
+
+[type='search'] {
+  -webkit-appearance: textfield;
+  /* 1 */
+  outline-offset: -2px;
+  /* 2 */
+}
+
+/*
+Remove the inner padding in Chrome and Safari on macOS.
+*/
+
+::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+/*
+1. Correct the inability to style clickable types in iOS and Safari.
+2. Change font properties to `inherit` in Safari.
+*/
+
+::-webkit-file-upload-button {
+  -webkit-appearance: button;
+  /* 1 */
+  font: inherit;
+  /* 2 */
+}
+
+/*
+Add the correct display in Chrome and Safari.
+*/
+
+summary {
+  display: list-item;
+}
+
+/*
+Removes the default spacing and border for appropriate elements.
+*/
+
+blockquote,
+dl,
+dd,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+hr,
+figure,
+p,
+pre {
+  margin: 0;
+}
+
+fieldset {
+  margin: 0;
+  padding: 0;
+}
+
+legend {
+  padding: 0;
+}
+
+ol,
+ul,
+menu {
+  /* list-style: auto; */
+  /* margin: auto; */
+  /* padding: 0; */
+}
+
+/*
+Prevent resizing textareas horizontally by default.
+*/
+
+textarea {
+  resize: vertical;
+}
+
+/*
+1. Reset the default placeholder opacity in Firefox. (https://github.com/tailwindlabs/tailwindcss/issues/3300)
+2. Set the default placeholder color to the user's configured gray 400 color.
+*/
+
+input::placeholder,
+textarea::placeholder {
+  opacity: 1;
+  /* 1 */
+  color: theme('colors.gray.400', #9ca3af);
+  /* 2 */
+}
+
+/*
+Set the default cursor for buttons.
+*/
+
+button,
+[role="button"] {
+  cursor: pointer;
+}
+
+/*
+Make sure disabled buttons don't get the pointer cursor.
+*/
+:disabled {
+  cursor: default;
+}
+
+/*
+1. Make replaced elements `display: block` by default. (https://github.com/mozdevs/cssremedy/issues/14)
+2. Add `vertical-align: middle` to align replaced elements more sensibly by default. (https://github.com/jensimmons/cssremedy/issues/14#issuecomment-634934210)
+   This can trigger a poorly considered lint error in some tools but is included by design.
+*/
+
+img,
+svg,
+video,
+canvas,
+audio,
+iframe,
+embed,
+object {
+  display: block;
+  /* 1 */
+  vertical-align: middle;
+  /* 2 */
+}
+
+/*
+Constrain images and videos to the parent width and preserve their intrinsic aspect ratio. (https://github.com/mozdevs/cssremedy/issues/14)
+*/
+
+img,
+video {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Make elements with the HTML hidden attribute stay hidden by default */
+[hidden] {
+  display: none;
+}
+
+
+*::-webkit-scrollbar {
+  width: 12px;
+}
+
+/* Track */
+*::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+*::-webkit-scrollbar-thumb {
+  background: #c4c4c4;
+}
+
+/* Handle on hover */
+*::-webkit-scrollbar-thumb:hover {
+  background: rgb(217 215 215);
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(179, 174, 174, 0.5);
+}
+
+*::-webkit-scrollbar {
+  width: 12px;
+}
+
+/* Track */
+*::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+*::-webkit-scrollbar-thumb {
+  background: #c4c4c4;
+}
+
+/* Handle on hover */
+*::-webkit-scrollbar-thumb:hover {
+  background: rgb(217 215 215);
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(179, 174, 174, 0.5);
+}
+
+.btn {
+  @apply inline-flex h-9 cursor-pointer items-center justify-center rounded-md bg-transparent px-2 text-sm font-medium transition-colors hover:bg-zinc-100 focus:outline-none focus:bg-zinc-100 active:scale-95 disabled:pointer-events-none disabled:opacity-50 data-[state=open]:bg-transparent dark:text-zinc-100 dark:hover:bg-zinc-800 dark:hover:text-zinc-100 dark:focus:bg-zinc-800 dark:focus:ring-zinc-400 dark:focus:ring-offset-zinc-900 dark:data-[state=open]:bg-transparent;
+}
+
+.custom-edit-button {
+  background-color: #ff9800;
+  /* This is an orange color similar to Bootstrap's warning color */
+  color: #fff;
+  /* White text color */
+  border: none;
+  /* Removing default border */
+}
+
+.custom-edit-button:hover {
+  background-color: #e68900;
+  /* A darker shade for hover */
+  color: #fff !important;
+  /* White text color */
+}
+
+.sku-item .ant-form-item-row {
+  justify-content: end;
+}
+
+.ant-popconfirm .ant-popconfirm-buttons button {
+  margin-inline-end: 8px !important;
+  margin-inline-start: 0px !important;
+}
+
+.nav_link-home:hover::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  background-color: #005ebc;
+  left: 0;
+  top: 1.8rem;
+  animation-name: navborder;
+  animation-duration: 0.8s;
+}
+
+@keyframes navborder {
+  0% {
+    width: 0;
+  }
+
+  100% {
+    width: 100%;
+  }
+}
+
+.ant-picker-dropdown {
+  z-index: 2000 !important;
+}
+
+.bg-input input {
+  background-color: inherit;
+}
+
+.ant-table-footer {
+  padding: 0px !important;
+}
+
+.bg-card-task::before {
+  content: "";
+  @apply absolute top-0 left-0 w-full h-full bg-gray-200 opacity-20 z-[-1];
+}
+
+.bg-pricing-card {
+  background-color: white;
+  border: 2px solid white;
+  box-sizing: border-box;
+  transition: background-color 0.7s, background-image 0.7s, width 0.7s, height 0.7s;
+  width: 280px;
+  height: 90%;
+}
+
+.bg-pricing-card:hover {
+  background-color: hsl(218, 41%, 15%);
+  background-image: radial-gradient(650px circle at 0% 0%,
+      hsl(218, 41%, 35%) 15%,
+      hsl(218, 41%, 30%) 35%,
+      hsl(218, 41%, 20%) 75%,
+      hsl(218, 41%, 19%) 80%,
+      transparent 100%),
+    radial-gradient(1250px circle at 100% 100%,
+      hsl(218, 41%, 45%) 15%,
+      hsl(218, 41%, 30%) 35%,
+      hsl(218, 41%, 20%) 75%,
+      hsl(218, 41%, 19%) 80%,
+      transparent 100%);
+  width: 300px;
+  height: 100%;
+}
+
+.bg-pricing {
+  background-color: hsl(218, 41%, 15%);
+  background-image: radial-gradient(650px circle at 0% 0%,
+      hsl(219, 44%, 33%) 15%,
+      hsl(218, 44%, 26%) 35%,
+      hsl(220, 44%, 18%) 75%,
+      hsl(219, 44%, 14%) 80%,
+      transparent 100%),
+    radial-gradient(1250px circle at 100% 100%,
+      hsl(218, 41%, 44%) 15%,
+      hsl(218, 42%, 28%) 35%,
+      hsl(218, 42%, 20%) 75%,
+      hsl(218, 42%, 20%) 80%,
+      transparent 100%);
+}
+
+.gradient-text {
+  background-color: #021b79;
+  background-image: linear-gradient(180deg, #0ed2f7, 60%, #b2fefa);
+
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-weight: 600;
+}
+
+.box-shadow-pricing {
+  box-shadow: rgba(20, 73, 158, 0.17) 0px -23px 25px 0px inset, rgba(24, 40, 96, 0.15) 0px -36px 30px 0px inset,
+    rgba(25, 24, 117, 0.1) 0px -79px 40px 0px inset, rgba(47, 63, 183, 0.06) 0px 2px 1px,
+    rgba(21, 31, 135, 0.09) 0px 4px 2px, rgba(19, 25, 128, 0.09) 0px 8px 4px, rgba(19, 24, 119, 0.09) 0px 16px 8px,
+    rgba(16, 46, 123, 0.09) 0px 32px 16px;
+}
+
+.specific-div>p:last-child {
+  margin-bottom: 0;
+}
+
+.chat-height {
+  @apply h-[calc(100vh_-_8.125rem)] lg:h-[calc(100vh_-_5.625rem)];
+}
+
+.inbox-height {
+  @apply h-[calc(100vh_-_8.125rem)] lg:h-[calc(100vh_-_5.625rem)];
+}
+
+
+/* third-party libraries CSS */
+
+.tableCheckbox:checked~div span {
+  @apply opacity-100;
+}
+
+.tableCheckbox:checked~div {
+  @apply bg-primary border-primary;
+}
+
+
+
+.flatpickr-day.selected {
+  @apply bg-primary border-primary hover:bg-primary hover:border-primary;
+}
+
+.flatpickr-months .flatpickr-prev-month:hover svg,
+.flatpickr-months .flatpickr-next-month:hover svg {
+  @apply fill-primary;
+}
+
+.taskCheckbox:checked~.box span {
+  @apply opacity-100;
+}
+
+.taskCheckbox:checked~p {
+  @apply line-through;
+}
+
+.taskCheckbox:checked~.box {
+  @apply bg-primary border-primary dark:border-primary;
+}
+
+.custom-input-date::-webkit-calendar-picker-indicator {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 20px;
+}
+
+.custom-input-date-1::-webkit-calendar-picker-indicator {
+  background-image: url("/images/icon/icon-calendar.svg");
+}
+
+.custom-input-date-2::-webkit-calendar-picker-indicator {
+  background-image: url("/images/icon/icon-arrow-down.svg");
+}
+
+[x-cloak] {
+  display: none !important;
+}
+
+.jvectormap-tip {
+  background-color: #F8FAFC !important;
+  font-family: Satoshi, sans-serif;
+  ;
+}
+
+@layer components {
+  .triangle-top-right {
+    @apply bg-gradient-to-tr from-yellow-600 to-yellow-300;
+    clip-path: polygon(100% 0, 100% 100%, 0 0);
+  }
+}
+
+.bg-gradient-login {
+  background: linear-gradient(87deg, #11cdef 0, #1171ef 100%) !important;
+}
+
+
+.trapezoid {
+  width: 100vw;
+  height: 70%;
+
+  clip-path: polygon(0 101%, 0% 100%, 400% calc(100% - 700px), 0 0)
+}
+
+
+@media print {
+  .print-container {
+    width: 210mm;
+    height: 297mm;
+  }
+
+  .input-print {
+    border-width: 0px !important;
+  }
+
+  .print-hidden {
+    display: none;
+  }
+
+  .print-overflow-hidden {
+    overflow: hidden;
+  }
+
+  .payment-top {
+    margin-top: -80px;
+  }
+
+  .input-space {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  .ant-modal-content {
+    border-radius: none !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+
+  .ant-modal-close {
+    display: none !important;
+  }
+}
+
+.ant-table-cell {
+  padding: 10px !important;
+}
+
+.ant-input-number-input {
+  text-align: end !important;
+}
+
+.ant-input-number-handler-wrap {
+  display: none !important;
+}
+
+.ant-timeline-item-last {
+  padding-bottom: 0px !important;
+}
+
+@media (max-width: 480px) {
+  .ant-picker-panels {
+    flex-direction: column !important;
+  }
+
+}
+
+.parallelogram {
+  transform: skew(136deg);
+}
+
+/* Thêm thanh cuộn ngang phía trên bảng */
+.custom-scrollbar-top {
+  overflow-x: auto;
+  overflow-y: hidden;
+  height: 2px;
+  /* Phải bằng chiều cao của thanh cuộn ngang */
+}
+
+::-webkit-scrollbar {
+  width: 2px;
+  height: 5px;
+}
+
+.navbar-menu .ant-menu-submenu-title {
+  color: white !important
+}
+
+.navbar-menu .ant-menu-submenu-selected>.ant-menu-submenu-title {
+  color: #1677ff !important
+}
+
+.custom_modal-updateEmployee .ant-modal-content {
+  padding: 0 !important;
+}
+
+.custom_modal-updateEmployee .ant-modal-close {
+  color: white !important;
+  border: 1px solid white !important;
+  ;
+}
+
+.custom-table-bill thead.ant-table-thead th {
+  color: #ffffff !important;
+  /* Chữ màu trắng */
+  background-color: #91c5f9 !important;
+  /* Màu xanh nhạt */
+  font-weight: bold;
+  text-align: center;
+  padding: 12px;
+}
