@@ -79,13 +79,13 @@ export default function InventoryPage() {
     { title: "ĐVT", dataIndex: "unit", width: 90, align: "center" },
 
     // Group: Đầu kỳ
-    {
-      title: "Đầu kỳ",
-      children: [
-        { title: "Số lượng", dataIndex: "open_qty", align: "right", width: 120, render: fmt },
-        { title: "Giá trị", dataIndex: "open_val", align: "right", width: 160, render: fmt },
-      ],
-    },
+    // {
+    //   title: "Đầu kỳ",
+    //   children: [
+    //     { title: "Số lượng", dataIndex: "open_qty", align: "right", width: 120, render: fmt },
+    //     { title: "Giá trị", dataIndex: "open_val", align: "right", width: 160, render: fmt },
+    //   ],
+    // },
     // Group: Nhập kho
     {
       title: "Nhập kho",
