@@ -206,11 +206,11 @@ export default function Buying() {
               customer.treatment_progress.total_items ?? 0
             }`
           : "Chưa có",
-        // "Trạng thái thanh toán": customer.payment_status
-        //   ? (customer.payment_status.percent ?? 0) === 0
-        //     ? "Chưa thanh toán"
-        //     : `${customer.payment_status.percent}%`
-        //   : "Chưa có",
+        "Trạng thái thanh toán": customer.payment_status
+          ? (customer.payment_status.percent ?? 0) === 0
+            ? "Chưa thanh toán"
+            : `${customer.payment_status.percent}%`
+          : "Chưa có",
         "Ngày tới khám": customer.next_visit_date
           ? dayjs(customer.next_visit_date).format("DD/MM/YYYY")
           : "",
